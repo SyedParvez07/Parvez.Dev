@@ -6,6 +6,7 @@ import emailjs from "@emailjs/browser";
 const ContactPage = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const text = "Say Hello";
 
   const form = useRef();
@@ -14,24 +15,28 @@ const ContactPage = () => {
     e.preventDefault();
     setError(false);
     setSuccess(false);
+    setLoading(true);
 
     // Validate form inputs
     const message = form.current.user_message.value.trim();
     const email = form.current.user_email.value.trim();
-    
+
     if (!message || !email) {
       setError(true);
+      setLoading(false);
       return;
     }
-    
+
     if (!email.includes("@")) {
       setError(true);
+      setLoading(false);
       return;
     }
 
     // Check if environment variables are set
     if (!process.env.NEXT_PUBLIC_SERVICE_ID || !process.env.NEXT_PUBLIC_TEMPLATE_ID || !process.env.NEXT_PUBLIC_PUBLIC_KEY) {
       setError(true);
+      setLoading(false);
       return;
     }
 
@@ -45,10 +50,12 @@ const ContactPage = () => {
       .then(
         () => {
           setSuccess(true);
+          setLoading(false);
           form.current.reset();
         },
         () => {
           setError(true);
+          setLoading(false);
         }
       );
   };
@@ -113,12 +120,20 @@ const ContactPage = () => {
             />
           </div>
           <span>Regards</span>
-          <button 
+          <button
             type="submit"
-            className="bg-purple-200 rounded font-semibold text-gray-600 p-4 hover:bg-purple-300 transition-colors"
+            disabled={loading}
+            className="bg-purple-200 rounded font-semibold text-gray-600 p-4 hover:bg-purple-300 transition-colors focus:outline focus:outline-2 focus:outline-blue-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             aria-label="Send contact message"
           >
-            Send
+            {loading ? (
+              <>
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-600"></div>
+                Sending...
+              </>
+            ) : (
+              "Send"
+            )}
           </button>
           {success && (
             <span className="text-green-600 font-semibold" role="alert">

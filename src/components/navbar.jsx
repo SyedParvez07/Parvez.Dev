@@ -113,8 +113,10 @@ const Navbar = () => {
       <div className="md:hidden">
         {/* MENU BUTTON */}
         <button
-          className="w-10 h-8 flex flex-col justify-between z-50 relative"
+          className="w-10 h-8 flex flex-col justify-between z-50 relative focus:outline focus:outline-2 focus:outline-blue-500"
           onClick={() => setOpen((prev) => !prev)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={open}
         >
           <motion.div
             variants={topVariants}

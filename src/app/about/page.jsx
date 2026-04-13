@@ -1,8 +1,17 @@
 "use client";
-import Brain from "@/components/brain";
+import dynamic from "next/dynamic";
 import { motion, useInView, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+
+// Dynamically import Brain component for better performance
+const Brain = dynamic(() => import("@/components/brain"), {
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-600"></div>
+    </div>
+  ),
+});
 
 const AboutPage = () => {
   const containerRef = useRef();

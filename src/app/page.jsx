@@ -14,7 +14,13 @@ const Homepage = () => {
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* IMAGE CONTAINER */}
         <div className="h-1/2 lg:h-full lg:w-1/2 relative">
-          <Image src="/parvez3DDD.png" alt="parvezImg" fill className="object-contain" />
+          <Image
+            src="/parvez3DDD.png"
+            alt="Parvez - Full Stack Developer 3D illustration"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
         {/* TEXT CONTAINER */}
         <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center">
