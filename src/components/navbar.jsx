@@ -91,22 +91,22 @@ const Navbar = () => {
       {/* SOCIAL */}
       <div className="hidden md:flex gap-4 w-1/3">
         <Link href="/">
-          <Image src="/github.png" alt="" width={24} height={24} />
+          <Image src="/github.png" alt="GitHub profile link" width={24} height={24} />
         </Link>
         {/* <Link href="/">
           <Image src="/dribbble.png" alt="" width={24} height={24} />
         </Link> */}
         <Link href="https://www.instagram.com/syed_parvez_7/?__pwa=1">
-          <Image src="/instagram.png" alt="" width={24} height={24} />
+          <Image src="/instagram.png" alt="Instagram profile link" width={24} height={24} />
         </Link>
         <Link href="/">
-          <Image src="/facebook.png" alt="" width={24} height={24} />
+          <Image src="/facebook.png" alt="Facebook profile link" width={24} height={24} />
         </Link>
         {/* <Link href="/">
           <Image src="/pinterest.png" alt="" width={24} height={24} />
         </Link> */}
         <Link href="https://www.linkedin.com/in/syed-parvez-b285a723a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-          <Image src="/linkedin.png" alt="" width={24} height={24} />
+          <Image src="/linkedin.png" alt="LinkedIn profile link" width={24} height={24} />
         </Link>
       </div>
       {/* RESPONSIVE MENU */}
