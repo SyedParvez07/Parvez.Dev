@@ -65,7 +65,7 @@ const AboutPage = () => {
                   strokeWidth="2"
                 />
               </svg> */}
-              <img className="w-30 h-20" src="/parvezSign.png" alt="Sign" />
+              <Image className="w-30 h-20" src="/parvezSign.png" alt="Sign" width={120} height={80} />
             </div>
             {/* BIOGRAPHY SCROLL SVG */}
             <motion.svg
